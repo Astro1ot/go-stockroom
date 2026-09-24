@@ -20,5 +20,5 @@ CREATE TABLE IF NOT EXISTS order_items (
  unit_price_cents BIGINT NOT NULL CHECK (unit_price_cents >= 0),
  PRIMARY KEY (order_id, product_id)
 );
--- Covers a common back-office query; see docs/queries.sql for EXPLAIN.
+-- Supports listing customer orders by creation time.
 CREATE INDEX IF NOT EXISTS orders_customer_created_idx ON orders(customer, created_at DESC);
